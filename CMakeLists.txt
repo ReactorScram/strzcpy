@@ -23,7 +23,6 @@ target_compile_options(strzcpy PRIVATE
     -Wstrict-prototypes
     -Wmissing-prototypes
     -Wmissing-declarations
-    -Wno-analyzer-infinite-loop
     -Wconversion
     -Wsign-conversion
     -Wcast-qual
@@ -47,6 +46,7 @@ target_compile_options(strzcpy PRIVATE
 if (CMAKE_C_COMPILER_ID STREQUAL "GNU")
     target_compile_options(strzcpy PRIVATE
         -fanalyzer
+        -Wno-analyzer-infinite-loop
     )
 endif()
 
@@ -80,7 +80,6 @@ if (BUILD_TESTS)
         -Wshadow
         -Wstrict-prototypes
         -Wmissing-prototypes
-        -Wno-analyzer-infinite-loop
         -Wconversion
         -Wsign-conversion
         -Wcast-qual
@@ -99,7 +98,7 @@ if (BUILD_TESTS)
     )
 
     if (CMAKE_C_COMPILER_ID STREQUAL "GNU")
-        target_compile_options(strzcpy_tests PRIVATE -fanalyzer)
+        target_compile_options(strzcpy_tests PRIVATE -fanalyzer -Wno-analyzer-infinite-loop)
     endif()
 
     add_test(NAME strzcpy_tests COMMAND strzcpy_tests)
