@@ -11,6 +11,15 @@
 // All other routines build on this.
 size_t strxcpy(char *dst, const char *src, size_t dst_sz)
 {
+    if(dst_sz == 0) {
+        return 0;
+    }
+    if(dst == NULL) {
+        return 0;
+    }
+    if(src == NULL) {
+        return 0;
+    }
     for(size_t i = 0; i < dst_sz; i++) {
         if(src[i] == 0) {
             dst[i] = 0;
