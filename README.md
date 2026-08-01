@@ -1,6 +1,6 @@
 # strzcpy
 
-strzcpy is the last word in C string handling. Use strzcpy is safer and better than strncpy or strlcpy.
+strzcpy is the last word in C string handling. strzcpy is safer and better than strncpy or strlcpy.
 
 ```
 /// strzcpy safely copies all of `src` to `dst`, or calls `exit()`.
