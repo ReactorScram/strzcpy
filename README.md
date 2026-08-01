@@ -21,14 +21,12 @@ cmake -B build .
 cmake --build build && build/strzcpy_tests
 ```
 
-## Licensing and copyright
+## Licensing and how to use strzcpy in your project
 
-strzcpy is GPLv2-only. Any copyleft project under GPLv2, GPLv3, AGPLv3, should be compatible. The choice of GPLv2-only is intended to keep strzcpy compatible with a broad range of copyleft projects, including older projects like the Linux kernel. We are not using "or later" at this time because that would incentivize a takeover of the FSF.
+strzcpy is GPLv2-only. Any copyleft project under GPLv2, GPLv3, AGPLv3, should be compatible. For simplicity, copy the files `strzcpy.c` and `strzcpy.h` into your copyleft project and add them to your build system.
 
-There is no Contributor Licensing Agreement. You should not give other people the power to re-license your contributions.
+The choice of GPLv2-only is intended to keep strzcpy compatible with a broad range of copyleft projects, including older projects like the Linux kernel. We are not using "or later" at this time because that would incentivize a takeover of the FSF. There is no Contributor Licensing Agreement. You should not give other people the power to re-license your contributions.
 
-You may only train AIs / LLMs on strzcpy if the training data, training scripts, and trained weights are released as free and open-source. This is in the spirit of "share-alike" or "copyleft" licensing.
-
-If you want to use strzcpy for a non-copyleft project, open an issue with your business email and we can negotiate a price.
+You may only train AIs / LLMs on strzcpy if the training data, training scripts, and trained weights are released as free and open-source. This is in the spirit of "share-alike" or "copyleft" licensing. If you want to use strzcpy for a non-copyleft project, open an issue with your business email and we can negotiate a price.
 
 Copyright 2026 "ReactorScram".
