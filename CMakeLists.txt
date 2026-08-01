@@ -78,30 +78,36 @@ if (BUILD_TESTS)
 
     target_link_libraries(strzcpy_tests PRIVATE strzcpy)
 
-    target_compile_options(strzcpy_tests PRIVATE
-        -Wall
-        -Wextra
-        -Wpedantic
-        -Werror
-        -Wshadow
-        -Wstrict-prototypes
-        -Wmissing-prototypes
-        -Wconversion
-        -Wsign-conversion
-        -Wcast-qual
-        -Wcast-align
-        -Wpointer-arith
-        -Wwrite-strings
-        -Wundef
-        -Wformat=2
-        -Wnull-dereference
-        -Wdouble-promotion
-        -Wuninitialized
-        -Winit-self
-        -Wredundant-decls
-        -Wold-style-definition
-        -fno-common
-    )
+    if (CMAKE_C_COMPILER_ID MATCHES "GNU|Clang")
+        target_compile_options(strzcpy_tests PRIVATE
+            -Wall
+            -Wextra
+            -Wpedantic
+            -Werror
+            -Wshadow
+            -Wstrict-prototypes
+            -Wmissing-prototypes
+            -Wconversion
+            -Wsign-conversion
+            -Wcast-qual
+            -Wcast-align
+            -Wpointer-arith
+            -Wwrite-strings
+            -Wundef
+            -Wformat=2
+            -Wnull-dereference
+            -Wdouble-promotion
+            -Wuninitialized
+            -Winit-self
+            -Wredundant-decls
+            -Wold-style-definition
+            -fno-common
+        )
+    endif()
+
+    if (CMAKE_C_COMPILER_ID STREQUAL "MSVC")
+        # FIXME: Figure out the strict compiler options for MSVC. Good issue for a first-time contributor!
+    endif()
 
     if (CMAKE_C_COMPILER_ID STREQUAL "GNU")
         target_compile_options(strzcpy_tests PRIVATE -fanalyzer -Wno-analyzer-infinite-loop)
