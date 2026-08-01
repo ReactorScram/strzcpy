@@ -1,4 +1,5 @@
 // SPDX-License-Identifier: GPL-2.0-only
+// Copyright 2026 ReactorScram <https://github.com/ReactorScram/strzcpy>
 
 #pragma once
 
