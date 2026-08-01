@@ -6,6 +6,10 @@
 
 const size_t DST_SZ = 12;
 
+static void print_result(const size_t result) {
+    printf("result = %zu\n", result);
+}
+
 int main(void) {
     char dst[DST_SZ];
     size_t result = 0;
@@ -14,7 +18,7 @@ int main(void) {
 
     result = strxcpy(dst, "short", DST_SZ);
     if(result != 5) {
-        printf("result = %ld\n", result);
+        print_result(result);
         printf("%s:%d\n", __FILE__, __LINE__);
         return 1;
     }
@@ -27,7 +31,7 @@ int main(void) {
 
     result = strxcpy(dst, "Hello world", DST_SZ);
     if(result != 11) {
-        printf("result = %ld\n", result);
+        print_result(result);
         printf("%s:%d\n", __FILE__, __LINE__);
         return 1;
     }
@@ -43,7 +47,7 @@ int main(void) {
 
     result = strxcpy(dst, "Hello world!", DST_SZ);
     if(result != 0) {
-        printf("result = %ld\n", result);
+        print_result(result);
         printf("%s:%d\n", __FILE__, __LINE__);
         return 1;
     }
