@@ -33,4 +33,4 @@ jobs:
         shell: bash
         run: |
           cmake -B build .
-          cmake --build build && build\Debug\strzcpy_tests.exe
+          cmake --build build && build/Debug/strzcpy_tests.exe
