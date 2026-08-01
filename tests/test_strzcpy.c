@@ -4,19 +4,18 @@
 
 #include "../src/strzcpy.h"
 
-const size_t DST_SZ = 12;
-
 static void print_result(const size_t result) {
     printf("result = %zu\n", result);
 }
 
 int main(void) {
-    char dst[DST_SZ];
+    char dst[12];
+    const size_t dst_sz = sizeof(dst);
     size_t result = 0;
 
     // If `src` is short, we copy the whole thing
 
-    result = strxcpy(dst, "short", DST_SZ);
+    result = strxcpy(dst, "short", dst_sz);
     if(result != 5) {
         print_result(result);
         printf("%s:%d\n", __FILE__, __LINE__);
@@ -29,7 +28,7 @@ int main(void) {
 
     // If `src` is barely long enough, we copy it
 
-    result = strxcpy(dst, "Hello world", DST_SZ);
+    result = strxcpy(dst, "Hello world", dst_sz);
     if(result != 11) {
         print_result(result);
         printf("%s:%d\n", __FILE__, __LINE__);
@@ -45,7 +44,7 @@ int main(void) {
     // So `dst` is always null-terminated, and `src` is never truncated,
     // though sometimes `dst` is an empty string.
 
-    result = strxcpy(dst, "Hello world!", DST_SZ);
+    result = strxcpy(dst, "Hello world!", dst_sz);
     if(result != 0) {
         print_result(result);
         printf("%s:%d\n", __FILE__, __LINE__);
