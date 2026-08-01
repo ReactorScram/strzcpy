@@ -53,10 +53,7 @@ if (CMAKE_C_COMPILER_ID STREQUAL "GNU")
 endif()
 
 if (CMAKE_C_COMPILER_ID STREQUAL "MSVC")
-    target_compile_options(strzcpy PRIVATE
-        -fanalyzer
-        -Wno-analyzer-infinite-loop
-    )
+    # FIXME: Figure out the strict compiler options for MSVC. Good issue for a first-time contributor!
 endif()
 
 if (CMAKE_BUILD_TYPE STREQUAL "Debug")
