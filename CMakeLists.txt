@@ -14,36 +14,45 @@ set_target_properties(strzcpy PROPERTIES
     C_EXTENSIONS NO
 )
 
-target_compile_options(strzcpy PRIVATE
-    -Wall
-    -Wextra
-    -Wpedantic
-    -Werror
-    -Wshadow
-    -Wstrict-prototypes
-    -Wmissing-prototypes
-    -Wmissing-declarations
-    -Wconversion
-    -Wsign-conversion
-    -Wcast-qual
-    -Wcast-align
-    -Wpointer-arith
-    -Wwrite-strings
-    -Wundef
-    -Wformat=2
-    -Wnull-dereference
-    -Wdouble-promotion
-    -Wvla
-    -Wuninitialized
-    -Winit-self
-    -Wredundant-decls
-    -Wold-style-definition
-    -Wnested-externs
-    -Wstrict-overflow=5
-    -fno-common
-)
+if (CMAKE_C_COMPILER_ID MATCHES "GNU|Clang")
+    target_compile_options(strzcpy PRIVATE
+        -Wall
+        -Wextra
+        -Wpedantic
+        -Werror
+        -Wshadow
+        -Wstrict-prototypes
+        -Wmissing-prototypes
+        -Wmissing-declarations
+        -Wconversion
+        -Wsign-conversion
+        -Wcast-qual
+        -Wcast-align
+        -Wpointer-arith
+        -Wwrite-strings
+        -Wundef
+        -Wformat=2
+        -Wnull-dereference
+        -Wdouble-promotion
+        -Wvla
+        -Wuninitialized
+        -Winit-self
+        -Wredundant-decls
+        -Wold-style-definition
+        -Wnested-externs
+        -Wstrict-overflow=5
+        -fno-common
+    )
+endif()
 
 if (CMAKE_C_COMPILER_ID STREQUAL "GNU")
+    target_compile_options(strzcpy PRIVATE
+        -fanalyzer
+        -Wno-analyzer-infinite-loop
+    )
+endif()
+
+if (CMAKE_C_COMPILER_ID STREQUAL "MSVC")
     target_compile_options(strzcpy PRIVATE
         -fanalyzer
         -Wno-analyzer-infinite-loop
