@@ -1,0 +1,4 @@
+sources:
+    "1.0.0":
+        url: "https://github.com/ReactorScram/strzcpy/archive/refs/tags/v1.0.0.tar.gz"
+        sha256: "8ef8f7d233a04b49adafa4df4ae5241a2b107ce3ce41fe3de7862c01fdcd387d"

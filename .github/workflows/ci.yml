@@ -17,11 +17,18 @@ jobs:
 
     steps:
       - uses: actions/checkout@v7
+      - name: Install uv
+        uses: astral-sh/setup-uv@c771a70e6277c0a99b617c7a806ffedaca235ff9 # v9.0.0
+        with:
+          enable-cache: true
 
       - name: Build and test
         shell: bash
         run: |
-          cmake -B build .
+          uvx conan profile detect
+          uvx conan create .
+
+          cmake -B build . -DBUILD_TESTS=ON
           cmake --build build && build/strzcpy_tests
 
   build-windows:
@@ -29,8 +36,16 @@ jobs:
 
     steps:
       - uses: actions/checkout@v7
+      - name: Install uv
+        uses: astral-sh/setup-uv@c771a70e6277c0a99b617c7a806ffedaca235ff9 # v9.0.0
+        with:
+          enable-cache: true
+
       - name: Build and test
         shell: bash
         run: |
-          cmake -B build .
+          uvx conan profile detect
+          uvx conan create .
+
+          cmake -B build . -DBUILD_TESTS=ON
           cmake --build build && build/Debug/strzcpy_tests.exe

@@ -2,7 +2,7 @@
 
 #include <stdio.h>
 
-#include "../src/strzcpy.h"
+#include "../include/strzcpy.h"
 
 static void print_result(const size_t result) {
     printf("result = %zu\n", result);

@@ -2,11 +2,21 @@ cmake_minimum_required(VERSION 3.20)
 
 project(strzcpy C)
 
-option(BUILD_TESTS "Build unit tests" ON)
+option(BUILD_TESTS "Build unit tests" OFF)
 
-add_library(strzcpy STATIC
+include_directories(strzcpy STATIC include)
+
+add_library(strzcpy
     src/strzcpy.c
 )
+
+# CMake magic
+install(TARGETS strzcpy
+    ARCHIVE DESTINATION lib
+    LIBRARY DESTINATION lib
+    RUNTIME DESTINATION bin
+)
+install(DIRECTORY include/ DESTINATION include)
 
 set_target_properties(strzcpy PROPERTIES
     C_STANDARD 17
