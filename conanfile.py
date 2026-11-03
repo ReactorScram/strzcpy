@@ -2,7 +2,7 @@
 
 from conan import ConanFile
 from conan.tools.cmake import CMakeToolchain, CMake, cmake_layout
-from conan.tools.files import get
+from conan.tools.files import apply_conandata_patches, get
 from conan.tools.scm import Git
 
 required_conan_version = ">=2.1"
@@ -25,11 +25,6 @@ class helloRecipe(ConanFile):
     exports_sources = "CMakeLists.txt", "src/*", "include/*"
 
     generators = "CMakeDeps"
-
-    def source(self):
-        get(self, **self.conan_data["sources"][self.version],
-            destination=self.source_folder, strip_root=True)
-        apply_conandata_patches(self)
 
     def layout(self):
         cmake_layout(self)

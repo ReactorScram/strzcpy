@@ -4,9 +4,16 @@ project(strzcpy C)
 
 option(BUILD_TESTS "Build unit tests" ON)
 
+# CMake magic
+install(TARGETS strzcpy
+    ARCHIVE DESTINATION lib
+    LIBRARY DESTINATION lib
+    RUNTIME DESTINATION bin
+)
+
 include_directories(strzcpy STATIC include)
 
-add_library(strzcpy STATIC
+add_library(strzcpy
     src/strzcpy.c
 )
 
