@@ -9,9 +9,11 @@ size_t strzcpy(char *dst, const char *src, size_t dst_sz);
 
 If the source is bigger than the destination, we crash the entire process.
 
+![Bane from Dark Knight Rises saying, "Crashing this plane"](assets/crashing-this-plane.webp)
+
 strzcpy cannot be misused, only misunderstood.
 
-(strfcpy and strxcpy are offered as alternatives that don't crash on error.)
+strfcpy and strxcpy are offered as alternatives that don't crash on error.
 
 ## Build and test
 

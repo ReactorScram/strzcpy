@@ -4,6 +4,8 @@ project(strzcpy C)
 
 option(BUILD_TESTS "Build unit tests" ON)
 
+include_directories(strzcpy STATIC include)
+
 add_library(strzcpy STATIC
     src/strzcpy.c
 )
