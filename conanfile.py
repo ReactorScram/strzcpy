@@ -2,7 +2,10 @@
 
 from conan import ConanFile
 from conan.tools.cmake import CMakeToolchain, CMake, cmake_layout
+from conan.tools.files import get
 from conan.tools.scm import Git
+
+required_conan_version = ">=2.1"
 
 
 class helloRecipe(ConanFile):
@@ -24,9 +27,9 @@ class helloRecipe(ConanFile):
     generators = "CMakeDeps"
 
     def source(self):
-        git = Git(self)
-        git.clone(url="https://github.com/ReactorScram/strzcpy.git", target=".")
-        git.checkout("baa2f0845d6b5ee7bb6c399d0f8290ee938dcb5e")
+        get(self, **self.conan_data["sources"][self.version],
+            destination=self.source_folder, strip_root=True)
+        apply_conandata_patches(self)
 
     def layout(self):
         cmake_layout(self)
